@@ -10,12 +10,12 @@ publishDir = "pbinspanish.github.io"
     url = "/"
     weight = 1
   [[menu.main]]
-    name = "Posts"
+    name = "Blog"
     url = "/posts/"
     weight = 2
   [[menu.main]]
-    name = "Resume"
-    url = "/resume/"
+    name = "About Me"
+    url = "/about/"
     weight = 3
 
 # Minimal Params, kept for reference.
