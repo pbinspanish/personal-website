@@ -1,0 +1,22 @@
+<div id="nav-border" class="container-fluid custom-nav-background fixed-top">
+    <div class="container">
+        <nav id="nav" class="nav row">
+            <div class="col">
+                <h1 class="navbar-brand">Josiah Henson</h1>
+            </div>
+    
+            <div class="col-8 nav justify-content-end">
+                {{ range .Site.Menus.main }}
+                <a class="nav-link custom-nav-link" href="{{ .URL }}">
+                {{ if .Pre }}
+                {{ $icon := printf "<i data-feather=\"%s\"></i> " .Pre | safeHTML }}
+                {{ $icon }}
+                {{ end }}
+                {{ $text := print .Name | safeHTML }}
+                {{ $text }}
+                </a>
+                {{ end }}
+            </div>
+        </nav>
+    </div>
+</div>

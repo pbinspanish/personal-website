@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="container">
+    <h1>{{ .Title }}</h1>
+
+    {{ range .Pages.ByPublishDate.Reverse }}
+    <div class="media position-relative row mb-3 border-bottom pb-3">
+        <div class="col-3">
+            <img src="/images/header.jpg" alt="post image" class="img-fluid img-thumbnail rounded">
+        </div>
+        <div class="media-body col-9">
+            <h3>{{ .Title }}</h3>
+            {{ partial "metadata.html" . }}
+            <p>{{ .Summary }}</p>
+            <a href="{{ .RelPermalink }}" class="stretched-link">Read More</a>
+        </div>
+    </div>
+    {{ end }}
+</div>
+{{ end }}
