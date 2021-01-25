@@ -13,10 +13,18 @@ publishDir = "pbinspanish.github.io"
     name = "Blog"
     url = "/posts/"
     weight = 2
+  # [[menu.main]]
+  #   name = "Projects"
+  #   url = "/projects/"
+  #   weight = 3
   [[menu.main]]
-    name = "About Me"
+    name = "About"
     url = "/about/"
-    weight = 3
+    weight = 4
+  [[menu.main]]
+    name = "Links"
+    url = "/links/"
+    weight = 5
 
 [markup]
   [markup.highlight]
