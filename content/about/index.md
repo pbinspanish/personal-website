@@ -8,4 +8,4 @@ My name is Josiah Henson, and I am a Computer Science student studying at the Un
 
 ---
 
-My resume is available as a pdf [here](other/josiahhenson-resume).
+My resume is available as a pdf [here](other/josiahhenson-resume.pdf).
