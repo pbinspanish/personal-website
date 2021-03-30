@@ -4,9 +4,9 @@
     <div class="mb-3"></div>
     <hr>
 
-    <div class="container-fluid px-0">
+    <div class="d-flex flex-row flex-wrap justify-content-start align-items-start">
         {{ range .Pages.ByWeight }}
-        <div class="col-4 px-1">
+        <div class="col-sm mb-5">
             <img src="{{ .Permalink }}/images/thumb.jpg" alt="post image" class="img-fluid rounded">
             <hr>
             <div>
