@@ -4,14 +4,25 @@
     <div class="mb-3"></div>
     <hr>
 
-    {{ range .Pages.ByWeight }}
-    <a href="{{ .Page.Params.Link }}" target="_blank" title="{{ .Title }}">
-        <h5 class="mt-0 mb-3">
-            <i class="mr-4" data-feather="{{ .Page.Params.Icon }}"></i>{{ .Title }}
-        </h5> 
-    </a>
-    <!-- <p>{{ .Description }}</p> -->
+    <div class="row gx-2 gy-5 mt-3">
+        {{ range .Pages.ByWeight }}
 
-    {{ end }}
+        <div class="col-sm-4 position-relative">
+            <div class="rounded list-container h-100 px-2 mb-1">
+                <a href="{{ .Page.Params.Link }}" target="_blank" title="{{ .Title }}" class="stretched-link text-decoration-none">
+                    <i class="link-icon" data-feather="{{ .Page.Params.Icon }}"></i>
+                </a>
+                <h5 class="mb-1" style="margin-top: -0.5rem">
+                    {{ .Title }}
+                </h5> 
+                <p class="text-faded">
+                    {{ .Description }}
+                </p>
+            </div>
+        </div>
+
+        {{ end }}
+
+    </div>
 </div>
 {{ end }}
