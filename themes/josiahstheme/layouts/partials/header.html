@@ -1,7 +1,7 @@
 <div id="nav-border" class="container-fluid custom-nav-background fixed-top">
     <div class="container">
-        <nav id="nav" class="nav navbar-expand-lg row">
-            <div class="mr-auto my-2">
+        <nav id="nav" class="nav navbar-expand-lg">
+            <div class="flex-fill my-2">
                 <a class="header-title-link" href="/">
                     <h5 class="mb-0 custom-text header-title">Josiah Henson</h5>
                 </a>
@@ -10,7 +10,7 @@
                 <i data-feather="menu"></i>
             </button>
 
-            <div class="collapse navbar-collapse" id="toggleable">
+            <div class="collapse navbar-collapse flex-grow-0" id="toggleable">
                 <div class="nav ml-auto">
                     <ul class="navbar-nav">
                         {{ range .Site.Menus.main }}
