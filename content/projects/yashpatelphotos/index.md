@@ -5,4 +5,4 @@ weight: 1
 link: "https://www.instagram.com/patelhensonphotos/"
 ---
 
-Respository of my adventures in photography, with @yash_patel14. For every one you see, there's a thousand you don't.
+Respository of my adventures in photography, with [Yash Patel](https://darkishlocket10.github.io/). For every one you see, there's a thousand you don't.
