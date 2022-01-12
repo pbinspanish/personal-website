@@ -1,7 +1,7 @@
 ---
 title: "Another Night"
 date: 2020-10-27T10:40:46-04:00
-draft: false
+draft: true
 thumbpath: thumb.jpg
 summary: A quick draft of a poem about procrastinating day after day.
 ---
