@@ -1,7 +1,7 @@
 # Build
 hugo
 
-# Stage and commit the generated pages to the website repo
+# Stage and Commit static pages
 cd pbinspanish.github.io
 git add .
 git commit -m $Args[0]
