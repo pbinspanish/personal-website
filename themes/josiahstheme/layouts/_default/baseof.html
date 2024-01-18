@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
+    <!-- Head -->
     {{- partial "head.html" . -}}
-    <body class="d-flex flex-column min-vh-100">
-        {{- partial "header.html" . -}}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
+    
+    <!-- Body -->
+    <body>
+        <div class="min-vh-100">
+            <!-- Header -->
+            {{- partial "header.html" . -}}
+            
+            <!-- Content Block -->
+            <div id="content">
+                {{- block "main" . }}
+                {{- end }}
+            </div>
         </div>
+        <!-- Footer -->
         {{- partial "footer.html" . -}}
-        {{- partial "script.html" . -}}
     </body>
 </html>

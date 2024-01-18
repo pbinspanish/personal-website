@@ -1,6 +1,12 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-<span>
-    <i class="align-middle" data-feather="calendar" width="16px" height="16px"></i>
-    <time class="align-middle" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
-</span>
+<div class="row justify-content-start align-items-center">
+    {{ with .PublishDate }}
+    <div class="col-auto pe-0">
+        <i class="bi bi-calendar"></i>
+    </div>
+    <div class="col-auto ps-2">
+        <time class="align-middle" datetime="{{ $dateTime }}">{{ .Format $dateFormat }}</time>
+    </div>
+    {{ end }}
+</div>

@@ -1,29 +1,62 @@
-<div id="nav-border" class="container-fluid custom-nav-background fixed-top">
+<nav class="navbar navbar-expand-lg py-0 custom-nav-background sticky-top">
     <div class="container">
-        <nav id="nav" class="nav navbar-expand-lg">
-            <div class="flex-fill my-2">
-                <a class="header-title-link" href="/">
-                    <h5 class="mb-0 custom-text header-title">Josiah Henson</h5>
-                </a>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#toggleable" aria-controls="toggleable" aria-expanded="false" aria-label="Toggle navigation">
-                <i data-feather="menu"></i>
-            </button>
+        <!-- Home Link -->
+        <div class="flex-fill my-2">
+            <a class="header-title-link" href="/">
+                <h5 class="mb-0 custom-text header-title">Josiah Henson</h5>
+            </a>
+        </div>
 
-            <div class="collapse navbar-collapse flex-grow-0" id="toggleable">
-                <div class="nav ml-auto">
-                    <ul class="navbar-nav">
-                        {{ range .Site.Menus.main }}
-                            <li class="nav-item">
-                                <a class="nav-link custom-nav-link" href="{{ .URL }}">
-                                {{ $text := print .Name | safeHTML }}
-                                {{ $text }}
-                                </a>
+        <!-- Mobile Navbar Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleable"
+            aria-controls="toggleable" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse flex-grow-0" id="toggleable">
+            <div class="nav ml-auto">
+                <ul class="navbar-nav">
+                    {{ range .Site.Menus.main }}
+                    <li class="nav-item mx-1">
+                        <a class="nav-link custom-nav-link px-1" href="{{ .URL }}">
+                            {{ $text := print .Name | safeHTML }}
+                            {{ $text }}
+                        </a>
+                    </li>
+                    {{ end }}
+                    <!-- Theme Picker (based on the bootstrap docs implementation) -->
+                    <li class="nav-item ms-2 dropdown">
+                        <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center show" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-auto-close="true" data-bs-display="static" aria-label="Toggle theme (dark)">
+                            <i class="bi theme-icon-active bi-moon-stars-fill"></i>
+                            <span class="d-lg-none ms-2" id="bd-theme-text">Toggle theme</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text" data-bs-popper="static">
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                    <i class="bi me-2 opacity-50 theme-icon bi-sun-fill"></i>
+                                    Light
+                                    <i class="bi bi-check2 ms-auto d-none"></i>
+                                </button>
                             </li>
-                        {{ end }}
-                    </ul>
-                </div>
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark" aria-pressed="true">
+                                    <i class="bi me-2 opacity-50 theme-icon bi-moon-stars-fill"></i>
+                                    Dark
+                                    <i class="bi bi-check2 ms-auto d-none"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                                    <i class="bi me-2 opacity-50 theme-icon bi-circle-half"></i>
+                                    Auto
+                                    <i class="bi bi-check2 ms-auto d-none"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
     </div>
-</div>
+</nav>
