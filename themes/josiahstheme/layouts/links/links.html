@@ -10,16 +10,19 @@
         <div class="row gx-2">
             {{ range .Pages.ByWeight }}
     
-            <div class="col-sm-4 mt-3">
-                <div class="rounded list-container h-100 px-2 pt-2 mb-1">
-                    <a href="{{ .Page.Params.Link }}" target="_blank" title="{{ .Title }}" class="stretched-link text-decoration-none">
-                    </a>
-                    <h5 class="mb-1">
-                        {{ .Title }}
-                    </h5> 
-                    <p class="text-faded">
-                        {{ .Description }}
-                    </p>
+            <div class="col-sm-4 mt-2">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <a href="{{ .Page.Params.Link }}" target="_blank" title="{{ .Title }}" class="stretched-link text-decoration-none">
+                        </a>
+                        <h5 class="mb-1">
+                            <i class="bi {{ .Page.Params.BootstrapIconClass }} me-1"></i>
+                            {{ .Title }}
+                        </h5> 
+                        <p class="text-faded">
+                            {{ .Description }}
+                        </p>
+                    </div>
                 </div>
             </div>
             {{ end }}
