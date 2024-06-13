@@ -5,7 +5,7 @@
 [void][System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")
 
 # Specify the path to the folder containing the images
-$folderPath = "J:\wedding-photo-web\img\prep\full"
+$folderPath = "J:\pbinspanish.hugo\static\wedding\img\prep\full"
 
 # Get all image files in the folder
 $imageFiles = Get-ChildItem -Path $folderPath -File | Where-Object { $_.Extension -match '\.(jpg|jpeg|png|gif|bmp)$' }
@@ -16,26 +16,33 @@ $imageData = @()
 # Calculate aspect ratio for each image
 foreach ($file in $imageFiles) {
 	$image = [System.Drawing.Bitmap]::FromFile($file.FullName)
-	Write-Output "$($file.FullName) $($image.Width) $($image.Height) $($image.GetPropertyItem(274).Value[0]) $($image.Width / $image.Height) $($image.Height / $image.Width)"
+	
+	#Write-Output "$($file.FullName) $($image.Width) $($image.Height) $($image.GetPropertyItem(274).Value[0]) $($image.Width / $image.Height) $($image.Height / $image.Width) Date Taken: $([System.Text.Encoding]::UTF8.GetString($image.GetPropertyItem(36867).Value))"
+	
 	if ($image.GetPropertyItem(274).Value[0] -eq 1) {
 		# Landscape image
-		Write-Output "Landscape."
 		$aspectRatio = [Math]::Round($image.Width / $image.Height, 3)
 	}
  	else {
 		# Portrait image (invert the ratio)
-		Write-Output "Portrait."
 		$aspectRatio = [Math]::Round($image.Height / $image.Width, 3)
 	}
-	$imageData += @{
+	$dateTaken = [System.Text.Encoding]::UTF8.GetString($image.GetPropertyItem(36867).Value).TrimEnd("`0")
+	$dateTaken = [DateTime]::ParseExact($dateTaken, "yyyy:MM:dd HH:mm:ss", $null)
+	$imageData += New-Object PSObject -Property @{
 		filename    = $file.Name
 		aspectRatio = $aspectRatio
+		dateTaken   = $dateTaken
 	}
 	$image.Dispose()
 }
 
+$imageDataSorted = $imageData | Sort-Object -Property dateTaken
+
+#$imageDataSorted | Format-Table -Property filename, aspectRatio, dateTaken
+
 # Convert the data to JSON format
-$jsonData = $imageData | ConvertTo-Json
+$jsonData = $imageDataSorted | ConvertTo-Json
 
 # Output the JSON data
 Write-Output $jsonData
