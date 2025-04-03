@@ -1,0 +1,57 @@
+<nav class="sticky top-0 w-full py-0 bg-paper dark:bg-black">
+    <div class="mx-auto w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+        <div class="mx-8 flex items-stretch">
+            <a class="no-underline flex items-center" href="/">
+                <h5
+                    class="mb-0 text-lg font-bold hover:text-cyan-400 hover:dark:text-cyan-600 transition-colors duration-150 ease-in-out">
+                    Josiah Henson</h5>
+            </a>
+
+            <div class="flex-grow"></div>
+
+            <ul class="flex items-stretch">
+                {{ range .Site.Menus.main }}
+                <li class="mx-1 flex items-stretch">
+                    <a class="px-1 py-2 no-underline border-y-4 border-y-transparent transition-colors duration-150 ease-in-out hover:border-b-cyan-400 hover:dark:border-b-cyan-600 hover:text-cyan-400 hover:dark:text-cyan-600"
+                        href="{{ .URL }}">
+                        {{ $text := print .Name | safeHTML }}
+                        {{ $text }}
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+            <div class="flex items-stretch ms-4 relative">
+                <button type="button" class="cursor-pointer hover:text-cyan-400 hover:dark:text-cyan-600"
+                    id="theme-menu-button" aria-expanded="false" aria-haspopup="true">
+                    <div id="selected-theme-icon" class="icon-sun-moon inline"></div>
+                    <div class="icon-chevron-down inline ms-1"></div>
+                </button>
+                <div id="theme-menu" class="absolute bg-base-50 dark:bg-base-900 mt-10 right-0 rounded-md shadow-md z-10 min-w-32 hidden">
+                    <fieldset id="theme-picker" class="flex flex-col py-2">
+                        <label
+                            class="flex justify-start cursor-pointer hover:bg-base-150 dark:hover:bg-base-850 hover:text-cyan-400 hover:dark:text-cyan-600 px-4 py-2">
+                            <input class="hidden" name="theme" type="radio" value="auto" checked>
+                            <div class="icon-sun-moon me-2"></div>
+                            Auto
+                            <div id="auto-check" class="icon-check ms-auto"></div>
+                        </label>
+                        <label
+                            class="flex cursor-pointer hover:bg-base-150 dark:hover:bg-base-850 hover:text-cyan-400 hover:dark:text-cyan-600 px-4 py-2">
+                            <input class="hidden" name="theme" type="radio" value="light">
+                            <div class="icon-sun me-2"></div>
+                            Light
+                            <div id="light-check" class="icon-check ms-auto invisible"></div>
+                        </label>
+                        <label
+                            class="flex cursor-pointer hover:bg-base-150 dark:hover:bg-base-850 hover:text-cyan-400 hover:dark:text-cyan-600 px-4 py-2">
+                            <input class="hidden" name="theme" type="radio" value="dark">
+                            <div class="icon-moon me-2"></div>
+                            Dark
+                            <div id="dark-check" class="icon-check ms-auto invisible"></div>
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

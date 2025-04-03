@@ -1,7 +1,7 @@
 baseURL = "http://pbinspanish.github.io"
 languageCode = "en-ca"
 title = "Josiah Henson"
-theme = "josiahstheme"
+theme = "theme"
 publishDir = "pbinspanish.github.io"
 
 [menu]

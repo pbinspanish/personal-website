@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="container-small container mt-5">
+    <h1>{{ .Title }}</h1>
+    {{ partial "metadata.html" . }}
+    {{ $img := $.Page.Resources.GetMatch "thumb"}}
+    <div class="no-gutters mt-3 mb-3">
+        <div class="col-12">
+            <img src="{{ .Permalink }}/images/thumb.jpg" alt="post image" class="rounded img-fluid w-100">
+        </div>
+    </div>
+    {{ .Content }}
+</div>
+{{ end }}

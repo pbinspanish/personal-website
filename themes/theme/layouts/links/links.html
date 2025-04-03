@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="mx-auto w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+    <div class="mx-8">
+        <!-- Title -->
+        <h1 class="text-4xl font-bold mt-12 mb-6">{{ .Title }}</h1>
+
+        <!-- Links -->
+        {{ range .Pages.ByWeight }}
+        <div class="flex items-center mb-3">
+            <a href="{{ .Page.Params.Link }}" target="_blank" title="{{ .Title }}" class="text-decoration-none flex items-center hover:text-cyan-400 hover:dark:text-cyan-600 transition-colors duration-150 ease-in-out">
+                <div class="icon-{{ .Page.Params.LucideIconName }} inline-block text-decoration-none before:text-2xl me-2">
+                </div>
+
+                {{ .Title }}<span class="text-base-600 dark:text-base-500 ms-1"> — {{ .Description }}</span>
+            </a>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
