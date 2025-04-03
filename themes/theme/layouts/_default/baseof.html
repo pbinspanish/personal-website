@@ -1,23 +1,26 @@
-<!DOCTYPE html>
-<html class="font-inter text-black dark:text-base-200 bg-paper dark:bg-black selection:bg-cyan-100 dark:selection:bg-cyan-800">
-<!-- Head -->
-{{- partial "head.html" . -}}
+<!doctype html>
+<html
+  class="font-inter dark:text-base-200 bg-paper text-black selection:bg-cyan-100 dark:bg-black dark:selection:bg-cyan-800"
+>
+  <!-- Head -->
+  {{- partial "head.html" . -}}
 
-<!-- Body -->
 
-<body class="">
+  <!-- Body -->
+
+  <body class="">
     <div class="min-h-dvh">
-        <!-- Header -->
-        {{- partial "header.html" . -}}
+      <!-- Header -->
+      {{- partial "header.html" . -}}
 
-        <!-- Content Block -->
-        <div class="w-full min-h-[calc(100dvh-42px)]">
-            {{- block "main" . }}
-            {{- end }}
-        </div>
+
+      <!-- Content Block -->
+      <div class="min-h-[calc(100dvh-42px)] w-full">
+        {{- block "main" . }}
+        {{- end }}
+      </div>
     </div>
     <!-- Footer -->
     {{- partial "footer.html" . -}}
-</body>
-
+  </body>
 </html>

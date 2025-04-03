@@ -1,10 +1,12 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-<div class="flex flex-row justify-start items-center mb-2">
-    {{ with .PublishDate }}
-    <div class="before:text-xl icon-calendar"></div>
+<div class="mb-2 flex flex-row items-center justify-start">
+  {{ with .PublishDate }}
+    <div class="icon-calendar before:text-xl"></div>
     <div class="col-auto ps-2">
-        <time class="align-middle" datetime="{{ $dateTime }}">{{ .Format $dateFormat }}</time>
+      <time class="align-middle" datetime="{{ $dateTime }}"
+        >{{ .Format $dateFormat }}</time
+      >
     </div>
-    {{ end }}
+  {{ end }}
 </div>

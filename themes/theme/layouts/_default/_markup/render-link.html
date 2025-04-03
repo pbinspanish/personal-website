@@ -1,5 +1,7 @@
-<a class="underline hover:text-cyan-400 hover:dark:text-cyan-600 transition-colors duration-150 ease-in-out" href="{{ .Destination | safeURL }}"
-  {{- with .Title }} title="{{ . }}"{{ end -}}
+<a
+  class="underline transition-colors duration-150 ease-in-out hover:text-cyan-400 hover:dark:text-cyan-600"
+  href="{{ .Destination | safeURL }}"
+  {{- with .Title }}title="{{ . }}"{{ end -}}
 >
   {{- with .Text }}{{ . }}{{ end -}}
 </a>

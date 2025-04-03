@@ -1,15 +1,14 @@
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/lucide-font/lucide.css" />
 
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/lucide-font/lucide.css">
+  <script type="text/javascript" src="/js/theme-picker.js"></script>
 
-    <script type="text/javascript" src="/js/theme-picker.js"></script>
-
-    {{ $title := print .Site.Title " | " .Title }}
-    {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
-    <title>{{ $title }}</title>
-    <link rel="shortcut icon" href="/images/favicon.png" />
+  {{ $title := print .Site.Title " | " .Title }}
+  {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+  <title>{{ $title }}</title>
+  <link rel="shortcut icon" href="/images/favicon.png" />
 </head>

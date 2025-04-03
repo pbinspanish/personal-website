@@ -1,15 +1,24 @@
 {{ define "main" }}
-<div class="bg-[url('/images/hero.jpg')] bg-[17%_40%] bg-cover bg-no-repeat h-[calc(100vh-42px)] w-full">
-    <div class="container mx-auto flex items-stretch h-full">
-        <div class="w-full flex justify-end items-center">
-            <div class="w-full lg:w-1/2 bg-paper dark:bg-black/90 backdrop-blur-xl p-8 rounded-lg shadow-lg">
-                <h1 class="text-4xl font-bold mb-4">404 Not found</h1>
-                <p class="text-xl">
-                    Sorry, but that page doesn't seem to exist. Instead, check out one of the posts on my 
-                    <a class="hover:text-cyan-400 hover:dark:text-cyan-600 transition-colors duration-150 ease-in-out underline" href="/posts/">blog</a>.
-                </p>
-            </div>
+  <div
+    class="h-[calc(100vh-42px)] w-full bg-[url('/images/hero.jpg')] bg-cover bg-[17%_40%] bg-no-repeat"
+  >
+    <div class="container mx-auto flex h-full items-stretch">
+      <div class="flex w-full items-center justify-end">
+        <div
+          class="bg-paper w-full rounded-lg p-8 shadow-lg backdrop-blur-xl lg:w-1/2 dark:bg-black/90"
+        >
+          <h1 class="mb-4 text-4xl font-bold">404 Not found</h1>
+          <p class="text-xl">
+            Sorry, but that page doesn't seem to exist. Instead, check out one
+            of the posts on my
+            <a
+              class="underline transition-colors duration-150 ease-in-out hover:text-cyan-400 hover:dark:text-cyan-600"
+              href="/posts/"
+              >blog</a
+            >.
+          </p>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 {{ end }}
