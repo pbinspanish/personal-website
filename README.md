@@ -2,6 +2,10 @@
 
 Project files for my personal website
 
+## Cloning
+
+After running `git clone`, run `git submodule init` and `git submodule update` to update the submodule.
+
 ## Dependencies
 
 - [Hugo](https://gohugo.io/)
