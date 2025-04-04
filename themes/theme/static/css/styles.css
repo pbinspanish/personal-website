@@ -541,6 +541,30 @@
   .bg-paper {
     background-color: var(--color-paper);
   }
+  .bg-paper\/50 {
+    background-color: color-mix(in srgb, #fffcf0 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-paper) 50%, transparent);
+    }
+  }
+  .bg-paper\/70 {
+    background-color: color-mix(in srgb, #fffcf0 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-paper) 70%, transparent);
+    }
+  }
+  .bg-paper\/80 {
+    background-color: color-mix(in srgb, #fffcf0 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-paper) 80%, transparent);
+    }
+  }
+  .bg-paper\/90 {
+    background-color: color-mix(in srgb, #fffcf0 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-paper) 90%, transparent);
+    }
+  }
   .bg-\[url\(\'\/images\/hero\.jpg\'\)\] {
     background-image: url('/images/hero.jpg');
   }

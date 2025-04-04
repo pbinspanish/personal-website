@@ -207,10 +207,6 @@
   --color-dark-ma-2: var(--color-magenta-600);
 }
 
-html {
-  color-scheme: light dark;
-}
-
 /* Manual CSS overrides for some generated HTML elements because Hugo doesn't support render hooks for every elements */
 hr {
   margin-top: 2rem;
