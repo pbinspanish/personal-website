@@ -1,38 +1,42 @@
-// from: https://www.aleksandrhovhannisyan.com/blog/the-perfect-theme-switch/
+// adapted from https://www.aleksandrhovhannisyan.com/blog/the-perfect-theme-switch/
 
 const THEME_STORAGE_KEY = "theme";
 const THEME_OWNER = document.documentElement;
 
+// get the stored theme and apply it
 const cachedTheme = localStorage.getItem(THEME_STORAGE_KEY);
 if (cachedTheme) {
   THEME_OWNER.dataset[THEME_STORAGE_KEY] = cachedTheme;
+} else {
+  applyAutoTheme();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const themePicker = document.getElementById("theme-picker");
   if (!themePicker) return;
 
+  // set the theme picker to match the cached theme
   const systemThemeInput = themePicker.querySelector("input[checked]");
   if (cachedTheme && cachedTheme !== systemThemeInput.value) {
     systemThemeInput.removeAttribute("checked");
     themePicker
       .querySelector(`input[value="${cachedTheme}"]`)
       .setAttribute("checked", "");
+
     themeElements(cachedTheme);
   }
 
   themePicker.addEventListener("change", (e) => {
     const theme = e.target.value;
-    if (theme === systemThemeInput.value) {
-      delete THEME_OWNER.dataset[THEME_STORAGE_KEY];
-      localStorage.removeItem(THEME_STORAGE_KEY);
+    if (theme === "auto") {
+      applyAutoTheme();
+      themeElements("auto");
     } else {
       THEME_OWNER.dataset[THEME_STORAGE_KEY] = theme;
       localStorage.setItem(THEME_STORAGE_KEY, theme);
-    }
 
-    // styling
-    themeElements(theme);
+      themeElements(theme);
+    }
   });
 
   // Popup handling
@@ -41,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // toggle theme-menu visibility when clicking theme-menu-button
   themeMenuButton.addEventListener("click", () => {
-    console.log("test");
     themeMenu.classList.toggle("hidden");
   });
 
@@ -55,6 +58,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+function applyAutoTheme() {
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    THEME_OWNER.dataset[THEME_STORAGE_KEY] = "dark";
+  } else {
+    THEME_OWNER.dataset[THEME_STORAGE_KEY] = "light";
+  }
+}
 
 function themeElements(theme) {
   const autoCheck = document.getElementById("auto-check");
