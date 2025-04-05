@@ -39,6 +39,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // listen for theme preference changes
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", ({ matches }) => {
+      console.log("theme changed");
+      if (localStorage.getItem(THEME_STORAGE_KEY) === null) {
+        if (matches) {
+          // dark mode
+          THEME_OWNER.dataset[THEME_STORAGE_KEY] = "dark";
+        } else {
+          // light mode
+          THEME_OWNER.dataset[THEME_STORAGE_KEY] = "light";
+        }
+      }
+    });
+
   // Popup handling
   const themeMenu = document.getElementById("theme-menu");
   const themeMenuButton = document.getElementById("theme-menu-button");
