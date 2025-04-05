@@ -15,10 +15,6 @@ After running `git clone`, run `git submodule init` and `git submodule update` t
 
 [Prettier](https://prettier.io/) is used for formatting.
 
-## Using Tailwind
-
-Run `tailwind -i themes/theme/static/css/tailwind.css -o themes/theme/static/css/styles.css --watch` in the project folder to update tailwind classes.
-
 ## Using Hugo
 
 Run `hugo server` to start the server on localhost:1313.

@@ -1,7 +1,6 @@
 baseURL = "http://pbinspanish.github.io"
 languageCode = "en-ca"
 title = "Josiah Henson"
-theme = "theme"
 publishDir = "pbinspanish.github.io"
 
 [menu]
@@ -35,3 +34,21 @@ publishDir = "pbinspanish.github.io"
     noClasses = true
     style = "native"
     tabWidth = 4
+
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'

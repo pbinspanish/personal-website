@@ -1,0 +1,23 @@
+{{ define "main" }}
+  <div class="mx-auto w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+    <div class="mx-8 my-12 flex flex-col gap-8">
+      <!-- Title -->
+      <div class="mb-6 text-4xl font-bold">
+        <h1>{{ .Title }}</h1>
+      </div>
+
+      <!-- List Entries -->
+      {{ range .Pages.ByPublishDate.Reverse }}
+        <div class="mb-3 flex items-center">
+          <a
+            href="{{ .RelPermalink }}"
+            title="{{ .Title }}"
+            class="text-decoration-none flex items-center transition-colors duration-150 ease-in-out hover:text-cyan-400 hover:dark:text-cyan-600"
+          >
+            {{ .Title }}
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}
