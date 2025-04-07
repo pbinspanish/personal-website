@@ -1,3 +1,5 @@
+import { createElement, Sun, Moon, SunMoon } from "./lucide-icons.js";
+
 // adapted from https://www.aleksandrhovhannisyan.com/blog/the-perfect-theme-switch/
 
 const THEME_STORAGE_KEY = "theme";
@@ -94,26 +96,33 @@ function themeElements(theme) {
 
   const selectedThemeIcon = document.getElementById("selected-theme-icon");
 
+  selectedThemeIcon.innerHTML = "";
+
   autoCheck.classList.add("invisible");
   lightCheck.classList.add("invisible");
   darkCheck.classList.add("invisible");
 
-  selectedThemeIcon.classList.remove("icon-sun");
-  selectedThemeIcon.classList.remove("icon-moon");
-  selectedThemeIcon.classList.remove("icon-sun-moon");
-
   switch (theme) {
     case "light":
       lightCheck.classList.remove("invisible");
-      selectedThemeIcon.classList.add("icon-sun");
+      const sunIcon = createElement(Sun, {
+        class: ["h-5 w-5"],
+      });
+      selectedThemeIcon.appendChild(sunIcon);
       break;
     case "dark":
       darkCheck.classList.remove("invisible");
-      selectedThemeIcon.classList.add("icon-moon");
+      const moonIcon = createElement(Moon, {
+        class: ["h-5 w-5"],
+      });
+      selectedThemeIcon.appendChild(moonIcon);
       break;
     case "auto":
       autoCheck.classList.remove("invisible");
-      selectedThemeIcon.classList.add("icon-sun-moon");
+      const sunMoonIcon = createElement(SunMoon, {
+        class: ["h-5 w-5"],
+      });
+      selectedThemeIcon.appendChild(sunMoonIcon);
       break;
   }
 }
