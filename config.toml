@@ -1,7 +1,7 @@
 baseURL = "http://pbinspanish.github.io"
 languageCode = "en-ca"
 title = "Josiah Henson"
-publishDir = "pbinspanish.github.io"
+publishDir = "public"
 
 [menu]
   [[menu.main]]
@@ -9,17 +9,17 @@ publishDir = "pbinspanish.github.io"
     url = "/posts/"
     weight = 2
   [[menu.main]]
-    name = "Projects"
-    url = "/projects/"
+    name = "Photography"
+    url = "/photos/"
     weight = 3
   [[menu.main]]
     name = "About"
     url = "/about/"
-    weight = 4
+    weight = 5
   [[menu.main]]
     name = "Links"
     url = "/links/"
-    weight = 5
+    weight = 6
 
 [markup]
   [markup.highlight]

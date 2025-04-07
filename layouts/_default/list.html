@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <div class="mx-auto w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+  <div class="mx-auto w-full max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl">
     <div class="mx-8 my-12 flex flex-col gap-8">
       <!-- Title -->
       <div class="mb-6 text-4xl font-bold">
@@ -12,9 +12,29 @@
           <a
             href="{{ .RelPermalink }}"
             title="{{ .Title }}"
-            class="text-decoration-none flex items-center transition-colors duration-150 ease-in-out hover:text-cyan-400 hover:dark:text-cyan-600"
+            class="text-decoration-none flex flex-col items-start transition-colors duration-150 ease-in-out hover:text-cyan-400 hover:dark:text-cyan-600"
           >
-            {{ .Title }}
+            <div class="flex flex-row items-center">
+              <span class="text-base-600 dark:text-base-500 text-md me-4">
+                {{ .Date | time.Format "2006-01-02" }}
+              </span>
+              <span class="flex flex-col">
+                <span class="text-semibold text-xl">{{ .Title }}</span>
+              </span>
+            </div>
+
+            <div class="flex flex-row">
+              <span
+                class="text-base-600 dark:text-base-500 text-md invisible me-4"
+              >
+                {{ .Date | time.Format "2006-01-02" }}
+              </span>
+              <span class="flex flex-col">
+                <div class="text-md text-base-600 dark:text-base-500">
+                  {{ .Summary }}
+                </div>
+              </span>
+            </div>
           </a>
         </div>
       {{ end }}

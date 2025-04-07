@@ -1,0 +1,48 @@
+{{ define "main" }}
+  <div class="mx-auto w-full max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl">
+    <div class="mx-8">
+      <!-- Title -->
+      <h1 class="mb-6 mt-12 text-4xl font-bold">{{ .Title }}</h1>
+      <div
+        class="mx-auto mb-12 grid max-w-7xl grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 xl:grid-cols-3"
+      >
+        {{ range .Pages.ByWeight }}
+          <a
+            class="flex flex-col rounded-2xl"
+            href="{{ .RelPermalink }}"
+            title="{{ .Title }}"
+          >
+            <figure class="aspect-3/2 w-full rounded-2xl">
+              <img
+                class="aspect-3/2 w-full overflow-hidden rounded-2xl object-cover"
+                src="{{ .RelPermalink }}/{{ .Params.cover }}"
+              />
+            </figure>
+            <div class="grow-1 shrink-1 flex basis-auto flex-col gap-3 p-4">
+              <h2 class="text-lg/5 font-bold">{{ .Title }}</h2>
+              <span class="text-base-600 dark:text-base-500 text-sm/6">
+                {{ $imageCount := 0 }}
+                {{ $albumCount := 0 }}
+
+                {{ if .IsPage }}
+                  {{ $imageCount = len (.Resources.ByType "image") }}
+                {{ else }}
+                  {{ range where .RegularPagesRecursive "Params.private" "ne" true }}
+                    {{ $albumCount = add $albumCount 1 }}
+                    {{ $imageCount = add $imageCount (len (.Resources.ByType "image")) }}
+                  {{ end }}
+                {{ end }}
+
+                {{ if gt $albumCount 0 }}
+                  {{ $imageCount }} photos in {{ $albumCount }} albums
+                {{ else }}
+                  {{ $imageCount }} photos
+                {{ end }}
+              </span>
+            </div>
+          </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+{{ end }}

@@ -25,10 +25,13 @@ Run `hugo server` to start the server on localhost:1313.
 
 ## TODO
 
-- [ ] mobile compatible navbar
+- [x] mobile compatible navbar
 - [ ] move away from static lucide icons to a tree-shakable method
 - [ ] RSS
 - [ ] add flexoki attribution
 - [ ] redo home page
 - [ ] update about page text
-- [ ] photograph portfolio
+- [x] photograph portfolio
+- [ ] host images on your computer instead of github pages
+- [ ] add hugo theme gallery attribution
+- [ ]

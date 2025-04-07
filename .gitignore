@@ -1,2 +1,5 @@
 .hugo_build.lock
 node_modules/
+resources/
+public/
+content/**/*.jpg

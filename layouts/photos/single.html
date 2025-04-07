@@ -1,0 +1,66 @@
+{{ define "main" }}
+  <div class="mx-auto w-full max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl">
+    <div class="mx-8">
+      <h1 class="mb-6 mt-12 text-4xl font-bold">{{ .Title }}</h1>
+    </div>
+  </div>
+  <div class="mx-auto w-11/12">
+    <div id="gallery" class="z-0 mb-12">
+      {{ $publishResources := default true .Params.build.publishResources }}
+      {{ with .Resources.Match "images/*.jpg" }}
+        {{ range $image := . }}
+          {{ $thumbnail := $image.Filter (slice images.AutoOrient (images.Process "fit 600x600")) }}
+          {{ $full := $image.Filter (slice images.AutoOrient (images.Process "fit 1600x1600")) }}
+
+
+          <a
+            class="gallery-item flex flex-col rounded-md"
+            href="{{ if $publishResources }}
+              {{ $image.RelPermalink }}
+            {{ else }}
+              {{ $full.RelPermalink }}
+            {{ end }}"
+            data-pswp-src="{{ .RelPermalink }}"
+            data-pswp-width="{{ $full.Width }}"
+            data-pswp-height="{{ $full.Height }}"
+            data-pswp-target="{{ $image.Name | urlize }}"
+            title="{{ .Title }}"
+            itemscope
+            itemtype="https://schema.org/ImageObject"
+            style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}"
+          >
+            <figure
+              class="rounded-md"
+              style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}"
+            >
+              <img
+                class="rounded-md"
+                width="{{ $thumbnail.Width }}"
+                height="{{ $thumbnail.Height }}"
+                src="{{ $thumbnail.RelPermalink }}"
+                alt="{{ .Title }}"
+              />
+            </figure>
+            <meta
+              itemprop="contentUrl"
+              content="{{ if $publishResources }}
+                {{ $image.RelPermalink }}
+              {{ else }}
+                {{ $full.RelPermalink }}
+              {{ end }}"
+            />
+            {{ with site.Params.Author }}
+              <span
+                itemprop="creator"
+                itemtype="https://schema.org/Person"
+                itemscope
+              >
+                <meta itemprop="name" content="{{ site.Params.Author.name }}" />
+              </span>
+            {{ end }}
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

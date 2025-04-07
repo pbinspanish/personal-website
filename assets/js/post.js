@@ -6,6 +6,10 @@
 // will also need a way to figure out how to get those automatically
 // for stuff like links
 
+import "./gallery.js";
+import "./lazysizes.js";
+import "./lightbox.js";
+
 import { createIcons, icons } from "./lucide-icons.js";
 
 createIcons({

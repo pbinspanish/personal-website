@@ -1,6 +1,7 @@
 ---
 title: "About"
 draft: false
+type: about
 ---
 
 Photo by [Yash Patel](https://www.darkishlocket10.me/)
