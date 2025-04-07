@@ -3,3 +3,4 @@ node_modules/
 resources/
 public/
 content/**/*.jpg
+hugo_stats.json
