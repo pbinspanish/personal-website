@@ -1,4 +1,4 @@
-baseURL = "http://pbinspanish.github.io"
+baseURL = "https://www.josiahhenson.ca"
 languageCode = "en-ca"
 title = "Josiah Henson"
 publishDir = "public"
