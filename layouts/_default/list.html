@@ -22,19 +22,6 @@
                 <span class="text-semibold text-xl">{{ .Title }}</span>
               </span>
             </div>
-
-            <div class="flex flex-row">
-              <span
-                class="text-base-600 dark:text-base-500 text-md invisible me-4"
-              >
-                {{ .Date | time.Format "2006-01-02" }}
-              </span>
-              <span class="flex flex-col">
-                <div class="text-md text-base-600 dark:text-base-500">
-                  {{ .Summary }}
-                </div>
-              </span>
-            </div>
           </a>
         </div>
       {{ end }}
