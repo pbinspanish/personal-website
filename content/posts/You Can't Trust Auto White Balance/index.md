@@ -2,7 +2,6 @@
 date: 2025-06-19
 title: You Can't Trust Auto White Balance
 draft: false
-unlisted: true
 ---
 
 Digital cameras have a feature called auto white balance which I feel is a rather apt metaphor for much of how our brains work.
