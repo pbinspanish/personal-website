@@ -34,4 +34,4 @@ Run `hugo server` to start the server on localhost:1313.
 - [x] photograph portfolio
 - [ ] host images on your computer instead of github pages
 - [ ] add hugo theme gallery attribution
-- [ ]
+- [ ] https://danilafe.com/blog/blog_microfeatures/
