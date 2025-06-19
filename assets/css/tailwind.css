@@ -219,6 +219,44 @@ hr[data-theme="dark"] {
   color: var(--color-base-700);
 }
 
-p {
+#content > p {
+  margin-bottom: 1rem;
+}
+
+#content > ul {
+  padding-left: 40px;
+  margin-bottom: 1rem;
+}
+
+#content > ul > li {
+  list-style: disc;
+}
+
+#content > p > img + em {
+  font-size: var(--text-base);
+  line-height: calc(var(--spacing) * 2);
+}
+
+#content > h1 {
+  font-size: var(--text-3xl);
+  line-height: var(--text-3xl--line-height);
+  font-weight: 700;
+
+  margin-bottom: 1.5rem;
+}
+
+#content > h2 {
+  font-size: var(--text-2xl);
+  line-height: var(--text-2xl--line-height);
+  font-weight: 500;
+
+  margin-bottom: 1.25rem;
+}
+
+#content > h3 {
+  font-size: var(--text-2xl);
+  line-height: var(--text-2xl--line-height);
+  font-weight: 400;
+
   margin-bottom: 1rem;
 }

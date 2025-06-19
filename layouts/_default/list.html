@@ -1,13 +1,13 @@
 {{ define "main" }}
   <div class="mx-auto w-full max-w-3xl">
-    <div class="mx-8 my-12 flex flex-col gap-8">
+    <div class="mx-8 my-12 flex flex-col gap-2">
       <!-- Title -->
       <div class="mb-6 text-4xl font-bold">
         <h1>{{ .Title }}</h1>
       </div>
 
       <!-- List Entries -->
-      {{ range .Pages.ByPublishDate.Reverse }}
+      {{ range (where .Pages.ByPublishDate.Reverse ".Params.unlisted" "!=" "true") }}
         <div class="mb-3 flex items-center">
           <a
             href="{{ .RelPermalink }}"
