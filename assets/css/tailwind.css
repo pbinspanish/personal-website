@@ -232,6 +232,16 @@ hr[data-theme="dark"] {
   list-style: disc;
 }
 
+#content > ol {
+  padding-left: 40px;
+  margin-bottom: 1rem;
+}
+
+#content > ol > li {
+  list-style-type: decimal;
+  text-align: left;
+}
+
 #content > p > img + em {
   font-size: var(--text-base);
   line-height: calc(var(--spacing) * 2);
